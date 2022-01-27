@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,20 +21,29 @@
 
 <body>
 <div class="jumbotron jumbotron-fluid">
-    <div class="container"></div>
-    <h2>Neural Radiance Flow for 4D View Synthesis and Video Processing</h2>
-    <h3>ICCV 2021</h3>
+    <div align="center">
+        <div class="container"></div>
+        <div align="center">
+        <h2>Sim2Real Object-Centric Keypoint Detection and Description</h2>
+        <h3>AAAI 2022</h3>
+    </div>
+
     <hr>
     <p class="authors">
-        <a href="https://yilundu.github.io">Yilun Du<sup>1</sup></a>,
-        <a href="">Yinan Zhang<sup>2</sup></a>,
-        <a href="https://kovenyu.com/">Hong-Xing Yu<sup>2</sup></a>,
-        <a href="https://mitibmwatsonailab.mit.edu/people/joshua-tenenbaum/">Joshua B. Tenenbaum<sup>1</sup></a>,
-        <a href="https://jiajunwu.com/">Jiajun Wu<sup>2</sup></a>
+        <a href="https://yilundu.github.io">Chengliang Zhong<sup>*12</sup></a>,
+        <a href="">Chao Yang<sup>*2</sup></a>,
+        <a href="https://kovenyu.com/">Jinshan Qi<sup>3</sup></a>,
+        <a href="https://mitibmwatsonailab.mit.edu/people/joshua-tenenbaum/">Fuchun Sun<sup>2</sup></a>,
+        <a href="https://jiajunwu.com/">Huaping Liu<sup>2</sup></a>
+        <a href="https://jiajunwu.com/">Xiaodong Mu<sup>1</sup></a>
+        <a href="https://jiajunwu.com/">Wenbing Huangu<sup>2</sup></a>
     </p>
     <p class="institution">
-      <sup>1</sup> MIT CSAIL&nbsp;&nbsp;&nbsp;
-      <sup>2</sup> Stanford University
+      <sup>1</sup> Xi’an Research Institute of High-Tech, Xi’an 710025, China&nbsp;&nbsp;&nbsp;
+      <br>
+      <sup>2</sup> Beijing National Research Center for Information Science and Technology (BNRist),State Key Lab on Intelligent Technology and Systems,Department of Computer Science and Technology, Tsinghua University, Beijing 100084, China
+      <br>
+      <sup>3</sup> Shandong University of Science and Technology, Qingdao 266590, China
     </p>
 
     <div class="btn-group" role="group" aria-label="Top menu">
@@ -44,39 +52,63 @@
     </div>
 </div>
 
-
+<hr>
 <div class="container">
     <div class="section">
-        <p>
-    We present a method, Neural Radiance Flow (NeRFlow), to learn a 4D spatial-temporal representation of a dynamic scene from a set of RGB images. Key to our approach is the use of a neural implicit representation that learns to  capture the 3D occupancy, radiance, and dynamics of the scene. By enforcing consistency across different modalities, our representation enables multi-view rendering in diverse dynamic scenes, including water pouring, robotic interaction, and real images, outperforming state-of-the-art methods for spatial-temporal view synthesis. Our approach works even when inputs images are captured with only two separate cameras. We further demonstrate that the learned representation can serve an implicit scene prior, enabling video processing tasks such as image super-resolution and de-noising without any additional supervision.
-        </p>
-    </div>
+        <div align="center">
+            <h2>Abstract</h2>
+        </div>    
+        <p style="text-align:justify; text-justify:inter-ideograph;">
+                Keypoint detection and description play a central role in
+                computer vision. Most existing methods are in the form of
+                scene-level prediction, without returning the object classes
+                of different keypoints. In this paper, we propose the object-
+                centric formulation, which, beyond the conventional setting,
+                requires further identifying which object each interest point
+                belongs to. With such fine-grained information, our frame-
+                work enables more downstream potentials, such as object-
+                level matching and pose estimation in a clustered environ-
+                ment. To get around the difficulty of label collection in the
+                real world, we develop a sim2real contrastive learning mech-
+                anism that can generalize the model trained in simulation to
+                real-world applications. The novelties of our training method
+                are three-fold: (i) we integrate the uncertainty into the learn-
+                ing framework to improve feature description of hard cases,
+                e.g., less-textured or symmetric patches; (ii) we decouple
+                the object descriptor into two output branches—intra-object
+                salience and inter-object distinctness, resulting in a better
+                pixel-wise description; (iii) we enforce cross-view semantic
+                consistency for enhanced robustness in representation learn-
+                ing. Comprehensive experiments on image matching and 6D
+                pose estimation verify the encouraging generalization ability
+                of our method from simulation to reality. Particularly for 6D
+                pose estimation, our method significantly outperforms typical
+                unsupervised/sim2real methods, achieving a closer gap with
+                the fully supervised counterpart.
+            </p>
 
-    <div class="section">
-        <h2>Full View Synthesis</h2>
-        <hr>
-        <p>
-            We present NeRFLow, which learns a 4D spatial-temporal representation of a dynamic scene. In a scene with water pouring,  we are able to render novel images (left), infer the depth map (middle left), the underlying continuous flow field (middle right), and denoise input observations (right).
-		</p>
-
-        <div class="row align-items-center">
-            <div class="col justify-content-center text-center">
-                <img src='fig/pouring_full.gif' class='img-fluid'>
-            </div>
-        </div>
 
         </br>
 
-        <p>
-            Our approach also works with synthesis results on the iGibson robot below, with rendered images on the left and inferred depth map in the middle. We are further able to synthesize dynamic animations (right).
-		</p>
-
         <div class="row justify-content-left">
-            <div class="col-sm-8">
-                <img src="fig/gibson_full.gif" class="img-fluid">
+            <div class="col-sm-6">
+                <video src="video/1_cracker_box.mp4" controls="controls" width="540" height="480" >
+                </video>
             </div>
-            <div class="col-sm-4">
-                <img src="fig/dynamic_human.gif" class="img-fluid">
+            <div class="col-sm-6">
+                <video src="video/2_sugar_box.mp4" controls="controls" width="540" height="480">
+                </video>
+            </div>
+        </div>
+        
+        <div class="row justify-content-left">
+            <div class="col-sm-6">
+                <video src="video/3_tomato_soup_can.mp4" controls="controls" width="540" height="480" >
+                </video>
+            </div>
+            <div class="col-sm-6">
+                <video src="video/4_mustard_bottle.mp4" controls="controls" width="540" height="480">
+                </video>
             </div>
          </div>
 
@@ -91,13 +123,13 @@
 
         <div class="row justify-content-left">
             <div class="col-sm-4">
-                <img src="fig/ayush.gif" class="img-fluid" style="width:90%">
+                <img src="fig/ayush.gif" class="img-fluid" style="width:100%">
             </div>
             <div class="col-sm-2">
                 <img src="fig/person_real.gif" class="img-fluid">
             </div>
             <div class="col-sm-6">
-                <img src="fig/kid_real.gif" class="img-fluid" style="width:90%">
+                <img src="fig/kid_real.gif" class="img-fluid" style="width:100%">
             </div>
          </div>
 
